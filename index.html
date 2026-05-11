@@ -64,7 +64,17 @@
 
   /* ── KPI grid ── */
   .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 28px; }
-  .kpi-card { background: var(--white); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+  .kpi-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .dispos-dates { display:flex; align-items:center; gap:6px; margin-bottom:12px; flex-wrap:wrap; }
+  .dispos-dates span { font-size:11px; color:var(--text-muted); white-space:nowrap; }
+  .dispos-date-input { border:1px solid var(--border); border-radius:var(--radius-sm); padding:4px 7px; font-size:11px; color:var(--text); background:var(--white); outline:none; width:120px; }
+  .dispos-date-input:focus { border-color:var(--peach); }
+  .dispos-person { display:flex; justify-content:space-between; align-items:center; padding:4px 0; font-size:12px; }
+  .dispos-person-name { color:var(--text-muted); }
+  .dispos-person-val { font-weight:700; color:var(--anthracite); }
+  .kpi-quarter { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+  .kpi-card { background: var(--white); border-radius: var(--radius); padding: 14px 24px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
   .kpi-label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 10px; }
   .kpi-value { font-size: 28px; font-weight: 500; color: var(--anthracite); letter-spacing: -.5px; line-height: 1; }
   .kpi-sub { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
@@ -142,6 +152,20 @@
   .multi-opt input[type=checkbox] { width:14px; height:14px; accent-color:var(--anthracite); cursor:pointer; flex-shrink:0; }
   .btn-secondary { background:var(--white); color:var(--anthracite); border:1px solid var(--border); border-radius:var(--radius-sm); padding:9px 18px; font-size:13px; font-weight:600; cursor:pointer; transition:background .15s; }
   .btn-secondary:hover { background:var(--beige); }
+  .form-section { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:16px; }
+  .form-section-title { background:var(--blue); padding:8px 16px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.7px; color:var(--anthracite); }
+  .form-section-body { padding:16px; display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; }
+  .plan-wd-btns { display:flex; gap:3px; margin:5px 0 3px; }
+  .plan-wd-btn { width:17px; height:17px; border-radius:50%; border:1.5px solid #adb8bb; background:#c5ced1; font-size:8px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--white); padding:0; transition:all .15s; line-height:1; }
+  .plan-wd-btn.active { background:var(--white); border-color:var(--blue-dim); color:var(--anthracite); }
+  .plan-wd-btn:hover { opacity:.8; }
+  .plan-start-row { display:flex; align-items:center; gap:5px; margin:4px 0 2px; font-size:10px; color:var(--text-muted); }
+  .plan-start-input { border:1px solid var(--border); border-radius:var(--radius-sm); padding:2px 5px; font-size:10px; color:var(--text); background:var(--white); outline:none; width:96px; cursor:pointer; }
+  .plan-start-input:focus { border-color:var(--peach); }
+  .plan-cell-nonwork { background: #dde3e5 !important; }
+  .res-header { display:grid; grid-template-columns:2fr 0.8fr 1fr 1.4fr 32px; gap:8px; padding:8px 16px 4px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); }
+  .res-row    { display:grid; grid-template-columns:2fr 0.8fr 1fr 1.4fr 32px; gap:8px; align-items:center; padding:4px 16px; }
+  .res-fl     { display:none; grid-template-columns:1fr 1fr; gap:8px; padding:2px 16px 8px 16px; }
   tbody tr.clickable-row { cursor:pointer; }
     .jours-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; margin-top:6px; }
   .jour-item label { display:block; font-size:11px; color:var(--text-muted); margin-bottom:4px; }
@@ -158,7 +182,7 @@
   /* ── KPI section divider ── */
   .kpi-section-divider { display: flex; align-items: center; gap: 16px; margin: 4px 0 20px; }
   .kpi-section-divider hr { flex: 1; border: none; border-top: 1px solid var(--blue-dim); }
-  .kpi-section-divider span { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .9px; color: var(--text-muted); white-space: nowrap; }
+  .kpi-section-divider span { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .9px; color: var(--text-muted); white-space: nowrap; }
 
   /* ── Conduite de projet ── */
   .mission-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: var(--blue); border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
@@ -229,8 +253,8 @@
   .plan-section-row td { background: var(--beige); font-weight: 700; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; padding: 4px 10px; border-top: 2px solid var(--border); }
   .plan-person-cell { cursor: pointer; transition: background .1s; }
   .plan-person-cell:hover:not(.plan-hol) { background: rgba(255,201,167,.4); }
-  .plan-cell-absent { background: #b0b8bc !important; cursor: pointer; }
-  .plan-cell-absent:hover { background: #8f9ea3 !important; }
+  .plan-cell-absent { background: var(--peach) !important; cursor: pointer; }
+  .plan-cell-absent:hover { background: #ffb88a !important; }
   .plan-section-lbl { background: var(--beige) !important; font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .6px; padding: 5px 10px !important; border-top: 2px solid var(--border); }
   .plan-task-lbl { cursor: pointer; }
   .plan-task-lbl:hover { background: #edf4f5; }
@@ -261,6 +285,7 @@
     border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .plan-cell.plan-hol { background: repeating-linear-gradient(45deg,#e2e2e2,#e2e2e2 3px,#ebebeb 3px,#ebebeb 6px); }
   .plan-cell.plan-tod { border-left: 2px solid #f43f5e; }
+  .plan-week-start { border-left: 2px solid rgba(23,28,29,.22) !important; }
   .plan-legend { display: flex; gap: 16px; padding: 12px 24px; flex-wrap: wrap; }
   .plan-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
   .plan-legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
@@ -298,8 +323,8 @@
       <div class="page-title">Vue globale</div>
     </div>
 
-    <!-- Ligne 1 : Missions en cours + Jours vendus (en cours) -->
-    <div class="kpi-grid">
+    <!-- Ligne 1 : Missions en cours + Jours vendus + Jours disponibles -->
+    <div class="kpi-grid-3">
       <div class="kpi-card">
         <div class="kpi-label">Missions en cours</div>
         <div class="kpi-value">2</div>
@@ -312,10 +337,55 @@
         <div class="kpi-sub">réalisés : <span id="kpi-jours-real-encours">—</span></div>
         <span class="kpi-badge badge-peach" id="kpi-jours-encours-badge">—</span>
       </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Jours disponibles</div>
+        <div class="dispos-dates" style="margin-bottom:12px;flex-wrap:nowrap">
+          <span>Entre le</span>
+          <input type="date" id="dispos-start" class="dispos-date-input" onchange="updateJoursDispos()" onclick="this.showPicker()">
+          <span>et le</span>
+          <input type="date" id="dispos-end" class="dispos-date-input" onchange="updateJoursDispos()" onclick="this.showPicker()">
+        </div>
+        <div id="dispos-result">
+          <div class="dispos-person"><span class="dispos-person-name">Maëva Coïc</span><span class="dispos-person-val" id="dispos-mc">—</span></div>
+          <div class="dispos-person"><span class="dispos-person-name">Fadma Sabiri</span><span class="dispos-person-val" id="dispos-fs">—</span></div>
+          <div class="dispos-person" style="margin-top:4px;padding-top:2px">
+            <span class="dispos-person-name" style="font-weight:700;color:var(--anthracite)">Total</span>
+            <span class="dispos-person-val" id="dispos-total">—</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="kpi-section-divider">
+      <span>CA par trimestre</span>
       <hr>
+    </div>
+
+    <!-- Ligne CA par trimestre -->
+    <div class="kpi-grid-4">
+      <div class="kpi-card">
+        <div class="kpi-label">Q1</div>
+        <div class="kpi-value">18 000 €</div>
+        <div class="kpi-quarter">jan. · fév. · mars</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Q2</div>
+        <div class="kpi-value">5 000 €</div>
+        <div class="kpi-quarter">avr. · mai · juin</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Q3</div>
+        <div class="kpi-value">—</div>
+        <div class="kpi-quarter">juil. · août · sept.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Q4</div>
+        <div class="kpi-value">—</div>
+        <div class="kpi-quarter">oct. · nov. · déc.</div>
+      </div>
+    </div>
+
+    <div class="kpi-section-divider">
       <span>Missions achevées</span>
       <hr>
     </div>
@@ -327,7 +397,7 @@
         <div class="kpi-value">7</div>
         <div class="kpi-sub">CFPC, Perenco, Engie…</div>
       </div>
-      <div class="kpi-card">
+      <div class="kpi-card" onclick="playCoins(this)" style="cursor:pointer;user-select:none" title="💰">
         <div class="kpi-label">CA total remisé</div>
         <div class="kpi-value">84 500 €</div>
         <div class="kpi-sub">prix remisé HT</div>
@@ -343,8 +413,8 @@
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Marge réelle</div>
-        <div class="kpi-value" id="kpi-marge-reelle">—</div>
-        <span class="kpi-badge badge-green" id="kpi-marge-reelle-badge">—</span>
+        <div class="kpi-value">4 200 €</div>
+        <span class="kpi-badge badge-green">46 % réel</span>
       </div>
     </div>
   </div>
@@ -389,6 +459,7 @@
               <th class="th-group th-alt" colspan="2">Dates</th>
               <th class="th-group">Outils</th>
               <th class="th-group">Typologie</th>
+              <th class="th-group">Use case</th>
               <th class="th-group">Équipe</th>
               <th class="th-group"></th>
             </tr>
@@ -397,13 +468,14 @@
               <th>Client</th>
               <th class="th-sep">Statut</th>
               <th class="th-sep">Mission vendue</th><th>Détails</th>
-              <th class="th-sep">Nb licences</th><th>Coût global</th>
+              <th class="th-sep">Nb licences</th><th>ARR</th>
               <th class="th-sep">Prix initial HT</th><th>Prix remisé HT</th>
               <th class="th-sep">Marge prév.</th><th>Marge réelle</th>
               <th class="th-sep">Jours vendus</th><th>Jours réalisés</th>
               <th class="th-sep">Début</th><th>Fin</th>
               <th class="th-sep">Outils auteur</th>
               <th class="th-sep">Typologie client</th>
+              <th class="th-sep">Use case</th>
               <th class="th-sep">Équipe</th>
               <th></th>
             </tr>
@@ -417,7 +489,7 @@
               <td class="td-num">—</td><td class="td-num">—</td>
               <td class="td-num">—</td><td class="td-num">—</td>
               <td class="td-num">—</td><td class="td-num">—</td>
-              <td colspan="5"></td>
+              <td colspan="6"></td>
               <td></td>
             </tr>
           </tfoot>
@@ -464,152 +536,151 @@
     </div>
     <div class="modal-body">
       <form id="mission-form" onsubmit="return false">
-        <div class="form-grid">
 
-          <div class="form-group full">
-            <label class="form-label">Client</label>
-            <input class="form-input" name="client" type="text" placeholder="Nom du client">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Statut</label>
-            <select class="form-select" name="statut">
-              <option value="en-cours">En cours</option>
-              <option value="planifie">À planifier</option>
-              <option value="termine">Terminé</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Mission vendue</label>
-            <select class="form-select" name="mission">
-              <option value="">— Sélectionner —</option>
-              <option>Refonte parcours / onboarding</option>
-              <option>Création modules e-learning</option>
-              <option>Audit &amp; stratégie e-learning</option>
-              <option>Formation présentielle</option>
-              <option>Blended learning</option>
-              <option>Accompagnement déploiement</option>
-              <option>Conseil pédagogique</option>
-              <option>Production multimédia</option>
-              <option>Autre</option>
-            </select>
-          </div>
-
-          <div class="form-group full">
-            <label class="form-label">Détail</label>
-            <input class="form-input" name="details" type="text" placeholder="Description courte de la mission">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Nombre de licences</label>
-            <input class="form-input" name="licences" type="number" min="0" placeholder="0">
-          </div>
-
-          <div class="form-group full">
-            <label class="form-label">Jours vendus</label>
-            <div class="jours-grid">
-              <div class="jour-item">
-                <label>Conseil</label>
-                <input class="form-input" name="jourConseil" type="number" min="0" step="0.5" placeholder="0" oninput="updateJoursTotal()">
-              </div>
-              <div class="jour-item">
-                <label>Ingénierie pédagogique</label>
-                <input class="form-input" name="jourInge" type="number" min="0" step="0.5" placeholder="0" oninput="updateJoursTotal()">
-              </div>
-              <div class="jour-item">
-                <label>Gestion de projet</label>
-                <input class="form-input" name="jourGestion" type="number" min="0" step="0.5" placeholder="0" oninput="updateJoursTotal()">
-              </div>
-              <div class="jour-item">
-                <label>Infographisme</label>
-                <input class="form-input" name="jourInfographie" type="number" min="0" step="0.5" placeholder="0" oninput="updateJoursTotal()">
-              </div>
+        <!-- ── Cartouche 1 : Identification ── -->
+        <div class="form-section">
+          <div class="form-section-title">Identification</div>
+          <div class="form-section-body">
+            <div class="form-group" style="grid-column:1/-1">
+              <label class="form-label">Client</label>
+              <input class="form-input" name="client" type="text" placeholder="Nom du client">
             </div>
-            <div class="jours-total">Total : <strong id="jours-total-display">0 j</strong></div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Coût global</label>
-            <input class="form-input" name="cout" type="text" placeholder="ex : 45 000 €">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Prix initial HT</label>
-            <input class="form-input" name="initial" type="text" placeholder="ex : 18 500 €">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Prix remisé HT</label>
-            <input class="form-input" name="remise" type="text" placeholder="ex : 17 000 €">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Marge prévisionnelle</label>
-            <input class="form-input" name="margePrev" type="text" placeholder="ex : 5 200 €">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Marge réelle</label>
-            <input class="form-input" name="margeReal" type="text" placeholder="ex : 4 800 €">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Date de début</label>
-            <input class="form-input" name="debut" type="date">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Date de fin</label>
-            <input class="form-input" name="fin" type="date">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Outils auteur</label>
-            <div class="multi-select-box">
-              <label class="multi-opt"><input type="checkbox" name="outils" value="Didask"> Didask</label>
-              <label class="multi-opt"><input type="checkbox" name="outils" value="Canva images"> Canva images</label>
-              <label class="multi-opt"><input type="checkbox" name="outils" value="Canva vidéos"> Canva vidéos</label>
-              <label class="multi-opt"><input type="checkbox" name="outils" value="ElevenLabs"> ElevenLabs</label>
-              <label class="multi-opt"><input type="checkbox" name="outils" value="Genially"> Genially</label>
-              <label class="multi-opt"><input type="checkbox" name="outils" value="Rise 360"> Rise 360</label>
-              <label class="multi-opt"><input type="checkbox" name="outils" value="Articulate Storyline"> Articulate Storyline</label>
-              <label class="multi-opt"><input type="checkbox" name="outils" value="PowerPoint / iSpring"> PowerPoint / iSpring</label>
+            <div class="form-group">
+              <label class="form-label">Statut</label>
+              <select class="form-select" name="statut">
+                <option value="en-cours">En cours</option>
+                <option value="planifie">À planifier</option>
+                <option value="termine">Terminé</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mission vendue</label>
+              <select class="form-select" name="mission">
+                <option value="">— Sélectionner —</option>
+                <option>Refonte parcours / onboarding</option>
+                <option>Création modules e-learning</option>
+                <option>Audit &amp; stratégie e-learning</option>
+                <option>Formation présentielle</option>
+                <option>Blended learning</option>
+                <option>Accompagnement déploiement</option>
+                <option>Conseil pédagogique</option>
+                <option>Production multimédia</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group" style="grid-column:1/-1">
+              <label class="form-label">Détail</label>
+              <input class="form-input" name="details" type="text" placeholder="Description courte de la mission">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date de début</label>
+              <input class="form-input" name="debut" type="date">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date de fin</label>
+              <input class="form-input" name="fin" type="date">
             </div>
           </div>
-
-          <div class="form-group">
-            <label class="form-label">Typologie client</label>
-            <select class="form-select" name="typo">
-              <option value="">— Sélectionner —</option>
-              <option>Service formation</option>
-              <option>Ressources humaines</option>
-              <option>Direction / Stratégie</option>
-              <option>Commercial</option>
-              <option>IT / Technique</option>
-              <option>OPCO</option>
-              <option>Établissement public</option>
-              <option>Grande entreprise</option>
-              <option>PME / ETI</option>
-            </select>
-          </div>
-
-          <div class="form-group full">
-            <label class="form-label">Équipe</label>
-            <div class="multi-select-box">
-              <label class="multi-opt">
-                <input type="checkbox" name="team" value="MC"> Maëva Coïc
-              </label>
-              <label class="multi-opt">
-                <input type="checkbox" name="team" value="FS"> Fadma Sabiri
-              </label>
-              <label class="multi-opt">
-                <input type="checkbox" name="team" value="FL"> Freelance
-              </label>
-            </div>
-          </div>
-
         </div>
+
+        <!-- ── Cartouche 2 : Finances ── -->
+        <div class="form-section">
+          <div class="form-section-title">Finances</div>
+          <div class="form-section-body">
+            <div class="form-group">
+              <label class="form-label">ARR</label>
+              <input class="form-input" name="cout" type="text" placeholder="ex : 45 000 €">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nombre de licences</label>
+              <input class="form-input" name="licences" type="number" min="0" placeholder="0">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Prix initial HT</label>
+              <input class="form-input" name="initial" type="text" placeholder="ex : 18 500 €">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Prix remisé HT</label>
+              <input class="form-input" name="remise" type="text" placeholder="ex : 17 000 €">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Marge prévisionnelle</label>
+              <input class="form-input" name="margePrev" type="text" placeholder="ex : 5 200 €">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Marge réelle</label>
+              <input class="form-input" name="margeReal" type="text" placeholder="ex : 4 800 €">
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Cartouche 3 : Ressources ── -->
+        <div class="form-section">
+          <div class="form-section-title">Ressources</div>
+          <div class="res-header">
+            <span>Poste</span><span>Jours</span><span>TJM</span><span>Affectation</span><span></span>
+          </div>
+          <div id="res-rows"></div>
+          <div style="padding:6px 16px 12px">
+            <button type="button" class="btn-add" onclick="addRessourceRow()">＋ Ajouter une ressource</button>
+          </div>
+        </div>
+
+        <!-- ── Cartouche 4 : Contexte ── -->
+        <div class="form-section">
+          <div class="form-section-title">Contexte</div>
+          <div class="form-section-body">
+            <div class="form-group" style="grid-column:1/-1">
+              <label class="form-label">Outils auteur</label>
+              <div class="multi-select-box">
+                <label class="multi-opt"><input type="checkbox" name="outils" value="Didask"> Didask</label>
+                <label class="multi-opt"><input type="checkbox" name="outils" value="Canva images"> Canva images</label>
+                <label class="multi-opt"><input type="checkbox" name="outils" value="Canva vidéos"> Canva vidéos</label>
+                <label class="multi-opt"><input type="checkbox" name="outils" value="ElevenLabs"> ElevenLabs</label>
+                <label class="multi-opt"><input type="checkbox" name="outils" value="Genially"> Genially</label>
+                <label class="multi-opt"><input type="checkbox" name="outils" value="Synthésia"> Synthésia</label>
+                <label class="multi-opt"><input type="checkbox" name="outils" value="Vidéos prestataire"> Vidéos prestataire</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Use case</label>
+              <select class="form-select" name="useCase">
+                <option value="">— Sélectionner —</option>
+                <option>Onboarding</option>
+                <option>Field training</option>
+                <option>Leadership / management / soft-skills</option>
+                <option>Industrial training / Workplace safety &amp; compliance</option>
+                <option>IT compliance + GDPR</option>
+                <option>Regulatory / legal training</option>
+                <option>Job training (Finance, HR, Accounting)</option>
+                <option>Healthcare training</option>
+                <option>Software training</option>
+                <option>Sales training</option>
+                <option>Customer training</option>
+                <option>Customer success teams training</option>
+                <option>Réduction coûts formation présentiel — entreprises</option>
+                <option>Réduction coûts formation présentiel — OF établis</option>
+                <option>Lancement nouvelles offres — OF établis</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Typologie client</label>
+              <select class="form-select" name="typo">
+                <option value="">— Sélectionner —</option>
+                <option>Service formation</option>
+                <option>Ressources humaines</option>
+                <option>Direction / Stratégie</option>
+                <option>Commercial</option>
+                <option>IT / Technique</option>
+                <option>OPCO</option>
+                <option>Établissement public</option>
+                <option>Grande entreprise</option>
+                <option>PME / ETI</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
       </form>
     </div>
     <div class="modal-footer">
@@ -676,6 +747,103 @@
 
 <script>
 // ── Navigation ────────────────────────────────────────────────────────────────
+function playCoins(card) {
+  // Son : pièces qui s'entrechoquent — attaque sèche, résonance métallique haute
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const hits = 12;
+  for (let i = 0; i < hits; i++) {
+    const t = ctx.currentTime + i * 0.07 + Math.random() * 0.05;
+    // Deux partiels par choc pour le timbre métallique
+    [1, 2.76].forEach(ratio => {
+      const osc  = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.type = 'triangle';
+      const freq = (2800 + Math.random() * 1400) * ratio;
+      osc.frequency.setValueAtTime(freq, t);
+      osc.frequency.exponentialRampToValueAtTime(freq * 0.92, t + 0.3);
+      gain.gain.setValueAtTime(0, t);
+      gain.gain.linearRampToValueAtTime(0.18, t + 0.003); // attaque sèche
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.32);
+      osc.start(t); osc.stop(t + 0.35);
+    });
+  }
+
+  // Pièces dorées Picsou
+  const rect = card.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const count = 16;
+  for (let i = 0; i < count; i++) {
+    const size = 20 + Math.random() * 16;
+    const el = document.createElement('div');
+    el.style.cssText = `
+      position:fixed; left:${cx}px; top:${cy}px;
+      width:${size}px; height:${size}px;
+      border-radius:50%;
+      background: radial-gradient(circle at 35% 35%, #ffe566, #f5a800 55%, #b87700);
+      border: 2px solid #c8860a;
+      box-shadow: inset 0 1px 2px rgba(255,240,100,.7), 0 2px 6px rgba(0,0,0,.3);
+      pointer-events:none; z-index:9999;
+      transform:translate(-50%,-50%);
+      display:flex; align-items:center; justify-content:center;
+      font-size:${size * 0.45}px; font-weight:900; color:#9a6000;
+      font-family:serif; line-height:1;
+    `;
+    el.textContent = '€';
+    document.body.appendChild(el);
+    const angle = (Math.random() * 260 - 130) * Math.PI / 180;
+    const dist  = 50 + Math.random() * 110;
+    const dx    = Math.sin(angle) * dist;
+    const dy    = -Math.abs(Math.cos(angle)) * dist - 20;
+    const delay = i * 40 + Math.random() * 35;
+    setTimeout(() => {
+      el.style.transition = 'transform 0.32s cubic-bezier(.2,.8,.3,1), opacity 0.3s ease';
+      el.style.transform  = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
+      setTimeout(() => {
+        el.style.transition = 'transform 0.5s cubic-bezier(.4,0,.7,1), opacity 0.4s ease';
+        el.style.transform  = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy + 170 + Math.random()*60}px))`;
+        el.style.opacity    = '0';
+        setTimeout(() => el.remove(), 550);
+      }, 340);
+    }, delay);
+  }
+}
+
+function updateJoursDispos() {
+  var start = document.getElementById('dispos-start').value;
+  var end   = document.getElementById('dispos-end').value;
+  var mcEl  = document.getElementById('dispos-mc');
+  var fsEl  = document.getElementById('dispos-fs');
+  if (!start || !end || start > end) {
+    mcEl.textContent = '—'; fsEl.textContent = '—'; return;
+  }
+  var count = { MC: 0, FS: 0 };
+  var d = new Date(start + 'T00:00:00');
+  var endD = new Date(end + 'T00:00:00');
+  while (d <= endD) {
+    var dow = d.getDay();
+    if (dow > 0 && dow < 6) {
+      var iso = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+      if (!PLAN_HOLIDAYS[iso]) {
+        ['MC','FS'].forEach(function(key) {
+          var absent   = planAbsences[key] && planAbsences[key].has(iso);
+          var after    = !planStartDate[key] || iso >= planStartDate[key];
+          var nonWork  = !absent && after && planWorkDays[key] && !planWorkDays[key].has(dow);
+          var assigned = planTasks.some(function(t) {
+            return planAssignments[t.idx] && planAssignments[t.idx][iso] === key;
+          });
+          if (!absent && !nonWork && !assigned) count[key]++;
+        });
+      }
+    }
+    d.setDate(d.getDate() + 1);
+  }
+  mcEl.textContent = count.MC + ' j';
+  fsEl.textContent = count.FS + ' j';
+  document.getElementById('dispos-total').textContent = (count.MC + count.FS) + ' j';
+}
+
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + pageId).classList.add('active');
@@ -690,9 +858,9 @@ function showPage(pageId) {
 document.getElementById('today').textContent = new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
 
 const missions = [
-  { client:'CFPC',    licences:150, cout:'45 000 €', mission:'Refonte parcours onboarding',    details:'Conception + développement Didask', initial:'18 500 €', remise:'17 000 €', margePrevRaw:5200, margePrev:'5 200 €', margeRealRaw:0,    margeReal:'—',       jourV:12, jourR:4, debut:'12/05/2026', fin:'30/09/2026', outils:'Didask, Canva images',        team:['MC','FS'], statut:'en-cours', margePct:31, margeRealPct:0, typo:'Service formation'   },
-  { client:'Perenco', licences:80,  cout:'22 000 €', mission:'Création modules e-learning RH', details:'Scénarisation + intégration',       initial:'12 000 €', remise:'11 500 €', margePrevRaw:3800, margePrev:'3 800 €', margeRealRaw:0,    margeReal:'—',       jourV:8,  jourR:0, debut:'01/07/2026', fin:'15/11/2026', outils:'Didask, ElevenLabs',             team:['MC'],      statut:'planifie',  margePct:33, margeRealPct:0, typo:'Ressources humaines' },
-  { client:'CNOEC',   licences:300, cout:'88 000 €', mission:'Audit & stratégie e-learning',   details:'Audit existant + recommandations', initial:'8 000 €',  remise:'8 000 €',  margePrevRaw:4500, margePrev:'4 500 €', margeRealRaw:4200, margeReal:'4 200 €', jourV:5,  jourR:5, debut:'15/02/2026', fin:'30/04/2026', outils:'Genially, Canva vidéos',         team:['MC'],      statut:'termine',   margePct:56, margeRealPct:53, typo:'Service formation'   },
+  { client:'CFPC',    licences:150, cout:'45 000 €', mission:'Refonte parcours onboarding',    details:'Conception + développement Didask', initial:'18 500 €', remise:'17 000 €', margePrevRaw:5200, margePrev:'5 200 €', margeRealRaw:0,    margeReal:'—',       jourV:12, jourR:4, debut:'12/05/2026', fin:'30/09/2026', outils:'Didask, Canva images',        team:['MC','FS'], statut:'en-cours', margePct:31, margeRealPct:0, typo:'Service formation',   useCase:'Onboarding',                          ressources:[{poste:'Ingénieure pédagogique', jours:12, tjm:'650 €', affectation:'Maëva Coïc', freelanceNom:'', freelanceCout:''}] },
+  { client:'Perenco', licences:80,  cout:'22 000 €', mission:'Création modules e-learning RH', details:'Scénarisation + intégration',       initial:'12 000 €', remise:'11 500 €', margePrevRaw:3800, margePrev:'3 800 €', margeRealRaw:0,    margeReal:'—',       jourV:8,  jourR:0, debut:'01/07/2026', fin:'15/11/2026', outils:'Didask, ElevenLabs',             team:['MC'],      statut:'planifie',  margePct:33, margeRealPct:0, typo:'Ressources humaines', useCase:'Job training (Finance, HR, Accounting)', ressources:[{poste:'Scénariste',             jours:8,  tjm:'600 €', affectation:'Maëva Coïc', freelanceNom:'', freelanceCout:''}] },
+  { client:'CNOEC',   licences:300, cout:'88 000 €', mission:'Audit & stratégie e-learning',   details:'Audit existant + recommandations', initial:'8 000 €',  remise:'8 000 €',  margePrevRaw:4500, margePrev:'4 500 €', margeRealRaw:4200, margeReal:'4 200 €', jourV:5,  jourR:5, debut:'15/02/2026', fin:'30/04/2026', outils:'Genially, Canva vidéos',         team:['MC'],      statut:'termine',   margePct:56, margeRealPct:53, typo:'Service formation',   useCase:'',                                    ressources:[{poste:'Consultante',            jours:5,  tjm:'700 €', affectation:'Fadma Sabiri', freelanceNom:'', freelanceCout:''}] },
 ];
 
 // ── KPI Vue globale ───────────────────────────────────────────────────────────
@@ -712,9 +880,6 @@ function renderKPIs() {
   document.getElementById('kpi-jours-encours-badge').textContent = pctReal + '% réalisés';
 
   document.getElementById('kpi-marge-prev').textContent = totalMargePrev.toLocaleString('fr-FR') + ' €';
-
-  document.getElementById('kpi-marge-reelle').textContent = totalMargeReelle.toLocaleString('fr-FR') + ' €';
-  document.getElementById('kpi-marge-reelle-badge').textContent = pctMargeVsPrec + ' % de la prév.';
 }
 
 // ── Table ─────────────────────────────────────────────────────────────────────
@@ -742,15 +907,17 @@ function renderTable(){
       <td class="td-sep">${statutTag(m.statut)}</td>
       <td class="td-sep">${m.mission}</td>
       <td class="td-muted" style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${m.details}</td>
-      <td class="td-num td-sep">${m.licences}</td><td class="td-num">${m.cout}</td>
+      <td class="td-num td-sep">${m.licences}</td><td class="td-num" style="white-space:nowrap;min-width:90px">${m.cout}</td>
       <td class="td-num td-sep" style="color:var(--text-muted)">${m.initial}</td>
       <td class="td-num"><strong>${m.remise}</strong></td>
       <td class="td-num td-sep">${m.margePrev}${pctBadge(m.margePct)}</td>
       <td class="td-num">${m.margeReal}${pctBadge(m.margeRealPct)}</td>
-      <td class="td-num td-sep">${m.jourV} j</td><td class="td-num">${m.jourR} j</td>
+      <td class="td-num td-sep">${m.jourV} j</td>
+      <td class="td-sep" style="min-width:110px">${(()=>{const pct=m.jourV>0?Math.round(m.jourR/m.jourV*100):0;const col=pct>=70?'var(--green)':pct>0?'var(--orange)':'var(--border)';return `<div style="display:flex;align-items:center;gap:6px"><div style="flex:1;height:6px;background:var(--border);border-radius:99px;overflow:hidden;min-width:50px"><div style="width:${pct}%;height:100%;background:${col};border-radius:99px"></div></div><span style="font-size:11px;color:${col==='var(--border)'?'var(--text-muted)':col};font-weight:600;white-space:nowrap">${m.jourR} j</span></div>`;})()} </td>
       <td class="td-sep" style="font-size:12px">${m.debut}</td><td style="font-size:12px">${m.fin}</td>
       <td class="td-sep td-muted">${m.outils}</td>
       <td class="td-sep td-muted">${m.typo}</td>
+      <td class="td-sep td-muted">${m.useCase || '—'}</td>
       <td class="td-sep">${avatarGroup(m.team)}</td>
       <td style="padding:8px 10px;white-space:nowrap"><button class="btn-delete" onclick="event.stopPropagation();deleteMission(${i})" title="Supprimer">🗑</button></td>
     </tr>`).join('');
@@ -815,7 +982,7 @@ function filterTable(q){
   });
 }
 function addMissionRow(){
-  missions.push({client:'Nouveau client',licences:0,cout:'',mission:'',details:'',initial:'',remise:'',margePrevRaw:0,margePrev:'—',margeRealRaw:0,margeReal:'—',jourV:0,jourR:0,debut:'—',fin:'—',outils:'Didask',team:[],statut:'planifie',margePct:0,margeRealPct:0,typo:'Service formation'});
+  missions.push({client:'Nouveau client',licences:0,cout:'',mission:'',details:'',initial:'',remise:'',margePrevRaw:0,margePrev:'—',margeRealRaw:0,margeReal:'—',jourV:0,jourR:0,debut:'—',fin:'—',outils:'Didask',team:[],statut:'planifie',margePct:0,margeRealPct:0,typo:'Service formation',useCase:'',ressources:[]});
   renderTable();
   openMissionModal(missions.length - 1);
 }
@@ -830,14 +997,49 @@ Cette action est irréversible.`)){
 }
 function toggleMission(id){ document.getElementById(id).classList.toggle('open'); }
 
-function updateJoursTotal() {
-  const f = document.getElementById('mission-form');
-  if (!f) return;
-  const total = ['jourConseil','jourInge','jourGestion','jourInfographie']
-    .reduce((s,n) => s + (parseFloat(f.querySelector('[name='+n+']').value) || 0), 0);
-  const el = document.getElementById('jours-total-display');
-  if (el) el.textContent = total + ' j';
+function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
+
+function addRessourceRow(r) {
+  r = r || {};
+  const item = document.createElement('div');
+  item.className = 'res-item';
+  const isFL = r.affectation === 'Freelance';
+  item.innerHTML = `
+    <div class="res-row">
+      <input class="form-input" name="r-poste" placeholder="ex : Ingénieure péda." value="${escHtml(r.poste)}">
+      <input class="form-input" name="r-jours" type="number" min="0" step="0.5" placeholder="0" value="${r.jours||''}">
+      <input class="form-input" name="r-tjm" placeholder="ex : 650 €" value="${escHtml(r.tjm)}">
+      <select class="form-select" name="r-affectation" onchange="toggleResFL(this)">
+        <option value="">—</option>
+        <option${r.affectation==='Maëva Coïc'?' selected':''}>Maëva Coïc</option>
+        <option${r.affectation==='Fadma Sabiri'?' selected':''}>Fadma Sabiri</option>
+        <option value="Freelance"${isFL?' selected':''}>Freelance</option>
+      </select>
+      <button type="button" class="btn-delete" title="Supprimer" onclick="this.closest('.res-item').remove()">🗑</button>
+    </div>
+    <div class="res-fl" style="display:${isFL?'grid':'none'}">
+      <input class="form-input" name="r-fl-nom" placeholder="Nom du freelance" value="${escHtml(r.freelanceNom)}">
+      <input class="form-input" name="r-fl-cout" placeholder="Coût (ex : 500 €/j)" value="${escHtml(r.freelanceCout)}">
+    </div>`;
+  document.getElementById('res-rows').appendChild(item);
 }
+
+function toggleResFL(sel) {
+  sel.closest('.res-item').querySelector('.res-fl').style.display =
+    sel.value === 'Freelance' ? 'grid' : 'none';
+}
+
+function collectRessources() {
+  return Array.from(document.querySelectorAll('#res-rows .res-item')).map(item => ({
+    poste:        item.querySelector('[name=r-poste]').value.trim(),
+    jours:        parseFloat(item.querySelector('[name=r-jours]').value) || 0,
+    tjm:          item.querySelector('[name=r-tjm]').value.trim(),
+    affectation:  item.querySelector('[name=r-affectation]').value,
+    freelanceNom: item.querySelector('[name=r-fl-nom]').value.trim(),
+    freelanceCout:item.querySelector('[name=r-fl-cout]').value.trim(),
+  }));
+}
+
 
 renderKPIs();
 renderTable();
@@ -857,11 +1059,8 @@ function openMissionModal(idx){
   f.querySelector('[name=statut]').value   = m.statut  || 'planifie';
   f.querySelector('[name=details]').value  = m.details || '';
   f.querySelector('[name=licences]').value = m.licences || '';
-  f.querySelector('[name=jourConseil]').value   = m.jourConseil   || '';
-  f.querySelector('[name=jourInge]').value       = m.jourInge       || '';
-  f.querySelector('[name=jourGestion]').value    = m.jourGestion    || '';
-  f.querySelector('[name=jourInfographie]').value = m.jourInfographie || '';
-  updateJoursTotal();
+  document.getElementById('res-rows').innerHTML = '';
+  (m.ressources && m.ressources.length ? m.ressources : [{}]).forEach(r => addRessourceRow(r));
   f.querySelector('[name=cout]').value     = m.cout    || '';
   f.querySelector('[name=initial]').value   = m.initial   || '';
   f.querySelector('[name=remise]').value    = m.remise    || '';
@@ -873,13 +1072,12 @@ function openMissionModal(idx){
   const outilsArr = (m.outils || '').split(', ').map(s => s.trim()).filter(Boolean);
   f.querySelectorAll('[name=outils]').forEach(cb => { cb.checked = outilsArr.includes(cb.value); });
   f.querySelector('[name=typo]').value     = m.typo    || '';
+  f.querySelector('[name=useCase]').value  = m.useCase || '';
   // Mission vendue: try exact match, else leave blank
   const mSel = f.querySelector('[name=mission]');
   const opt = [...mSel.options].find(o => o.value === m.mission || o.text === m.mission);
   mSel.value = opt ? opt.value : '';
   if(!mSel.value && m.mission){ /* add temp option */ const o=new Option(m.mission,m.mission); mSel.prepend(o); mSel.value=m.mission; }
-  // Team checkboxes
-  f.querySelectorAll('[name=team]').forEach(cb => { cb.checked = Array.isArray(m.team) && m.team.includes(cb.value); });
   document.getElementById('mission-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -897,11 +1095,8 @@ function saveMissionModal(){
   m.mission  = f.querySelector('[name=mission]').value;
   m.details  = f.querySelector('[name=details]').value.trim();
   m.licences = parseInt(f.querySelector('[name=licences]').value) || 0;
-  m.jourConseil      = parseFloat(f.querySelector('[name=jourConseil]').value)    || 0;
-  m.jourInge         = parseFloat(f.querySelector('[name=jourInge]').value)        || 0;
-  m.jourGestion      = parseFloat(f.querySelector('[name=jourGestion]').value)     || 0;
-  m.jourInfographie  = parseFloat(f.querySelector('[name=jourInfographie]').value) || 0;
-  m.jourV = m.jourConseil + m.jourInge + m.jourGestion + m.jourInfographie;
+  m.ressources = collectRessources();
+  m.jourV = m.ressources.reduce((s, r) => s + r.jours, 0);
   m.cout     = f.querySelector('[name=cout]').value.trim();
   m.initial  = f.querySelector('[name=initial]').value.trim();
   m.remise   = f.querySelector('[name=remise]').value.trim();
@@ -915,8 +1110,7 @@ function saveMissionModal(){
   m.fin      = isoToFr(f.querySelector('[name=fin]').value);
   m.outils   = [...f.querySelectorAll('[name=outils]:checked')].map(cb => cb.value).join(', ') || '';
   m.typo     = f.querySelector('[name=typo]').value;
-  m.team     = [...f.querySelectorAll('[name=team]:checked')].map(cb => cb.value);
-  if(m.team.length === 0) m.team = ['—'];
+  m.useCase  = f.querySelector('[name=useCase]').value;
   closeMissionModal();
   renderTable();
   renderKPIs();
@@ -934,7 +1128,27 @@ const PLAN_HOLIDAYS = {
   '2026-12-25':'Noël',
 };
 
-const planAbsences = { MC: new Set(['2026-05-15']), FS: new Set() };
+const planAbsences = {
+  MC: new Set(['2026-05-15','2026-05-21','2026-06-18','2026-07-23','2026-08-20','2026-09-17','2026-10-15','2026-11-19','2026-12-17']),
+  FS: new Set(['2026-05-21','2026-06-18','2026-07-23','2026-08-20','2026-09-17','2026-10-15','2026-11-19','2026-12-17'])
+};
+const planWorkDays  = { MC: new Set([1,2,3,4,5]), FS: new Set([1,2,3,4,5]) };
+const planStartDate = { MC: null, FS: null };
+
+function updateStartDate(person, val) {
+  planStartDate[person] = val || null;
+  renderPlanning();
+}
+
+function toggleWorkDay(person, dow) {
+  if (planWorkDays[person].has(dow)) {
+    if (planWorkDays[person].size <= 1) return; // au moins 1 jour
+    planWorkDays[person].delete(dow);
+  } else {
+    planWorkDays[person].add(dow);
+  }
+  renderPlanning();
+}
 
 const PLAN_PERSONS = [
   { key: 'MC', name: 'Maëva Coïc' },
@@ -963,7 +1177,7 @@ function planBuildDays() {
     var w = d.getDay();
     if (w !== 0 && w !== 6) {
       var iso = planLocalISO(d);
-      days.push({ iso: iso, num: d.getDate(), m: d.getMonth() });
+      days.push({ iso: iso, num: d.getDate(), m: d.getMonth(), dow: w });
     }
     d.setDate(d.getDate() + 1);
   }
@@ -1053,15 +1267,22 @@ function renderPlanning() {
   days.forEach(function(day) {
     var isHol = !!PLAN_HOLIDAYS[day.iso];
     var isTod = day.iso === todayISO;
-    var cls = 'plan-day-th' + (isHol ? ' plan-hol' : '') + (isTod ? ' plan-tod' : '');
+    var cls = 'plan-day-th' + (day.dow === 1 ? ' plan-week-start' : '') + (isHol ? ' plan-hol' : '') + (isTod ? ' plan-tod' : '');
     var title = isHol ? ' title="' + PLAN_HOLIDAYS[day.iso] + '"' : '';
     html += '<th class="' + cls + '"' + title + '>' + day.num + '</th>';
   });
   html += '</tr></thead><tbody>';
 
+  var DOW_LABELS = ['L','M','M','J','V'];
   PLAN_PERSONS.forEach(function(person) {
     var absCount = 0;
     planAbsences[person.key].forEach(function(iso) { if (!PLAN_HOLIDAYS[iso]) absCount++; });
+    var nonWorkCount = days.filter(function(d) {
+      if (PLAN_HOLIDAYS[d.iso]) return false;
+      if (planAbsences[person.key].has(d.iso)) return false;
+      var after = !planStartDate[person.key] || d.iso >= planStartDate[person.key];
+      return after && !planWorkDays[person.key].has(d.dow);
+    }).length;
     var assignedCount = 0;
     planTasks.forEach(function(t) {
       if (!planAssignments[t.idx]) return;
@@ -1069,25 +1290,37 @@ function renderPlanning() {
         if (planAssignments[t.idx][iso] === person.key) assignedCount++;
       });
     });
-    var avail = totalWorkDays - absCount - assignedCount;
+    var avail = totalWorkDays - absCount - nonWorkCount - assignedCount;
 
     html += '<tr>';
     html += '<td class="plan-lbl"><div class="plan-person-name">' + person.name + '</div>';
+    html += '<div class="plan-wd-btns">';
+    DOW_LABELS.forEach(function(lbl, i) {
+      var dow = i + 1;
+      var active = planWorkDays[person.key].has(dow) ? ' active' : '';
+      html += '<button class="plan-wd-btn' + active + '" onclick="toggleWorkDay(\'' + person.key + '\',' + dow + ')" title="' + ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'][i] + '">' + lbl + '</button>';
+    });
+    html += '</div>';
+    var startVal = planStartDate[person.key] || '';
+    html += '<div class="plan-start-row">À partir du <input type="date" class="plan-start-input" value="' + startVal + '" onchange="updateStartDate(\'' + person.key + '\',this.value)" onclick="this.showPicker()"></div>';
     html += '<div class="plan-avail">' + avail + ' j disponibles</div></td>';
 
     days.forEach(function(day) {
       var isHol = !!PLAN_HOLIDAYS[day.iso];
-      var isAbs = !isHol && planAbsences[person.key].has(day.iso);
+      var isAbs     = !isHol && planAbsences[person.key].has(day.iso);
+      var afterStart = !planStartDate[person.key] || day.iso >= planStartDate[person.key];
+      var isNonWork = !isHol && !isAbs && afterStart && !planWorkDays[person.key].has(day.dow);
       var isTod = day.iso === todayISO;
-      // Check if any task is assigned to this person on this day
       var assignedTask = null;
       planTasks.forEach(function(t) {
         if (planAssignments[t.idx] && planAssignments[t.idx][day.iso] === person.key) assignedTask = t;
       });
-      var cls = 'plan-cell';
+      var cls = 'plan-cell' + (day.dow === 1 ? ' plan-week-start' : '');
       var inner2 = '';
       if (isHol) {
         cls += ' plan-hol';
+      } else if (isNonWork) {
+        cls += ' plan-cell-nonwork';
       } else if (isAbs) {
         cls += ' plan-cell-absent';
       } else if (assignedTask) {
@@ -1096,7 +1329,7 @@ function renderPlanning() {
       } else {
         cls += ' plan-person-cell' + (isTod ? ' plan-tod' : '');
       }
-      var data = (isHol || isAbs || assignedTask) ? '' : ' data-person="' + person.key + '" data-iso="' + day.iso + '"';
+      var data = (isHol || isNonWork || assignedTask) ? '' : ' data-person="' + person.key + '" data-iso="' + day.iso + '"';
       html += '<td class="' + cls + '"' + data + '>' + inner2 + '</td>';
     });
     html += '</tr>';
@@ -1118,7 +1351,7 @@ function renderPlanning() {
     html += '</td>';
     days.forEach(function(day) {
       var type = cells[day.iso];
-      var cls = 'plan-cell';
+      var cls = 'plan-cell' + (day.dow === 1 ? ' plan-week-start' : '');
       if (PLAN_HOLIDAYS[day.iso]) cls += ' plan-hol';
       else if (type === 'delai')   cls += ' plan-cell-delai';
       else if (type === 'valid')   cls += ' plan-cell-valid';
@@ -1151,7 +1384,17 @@ function renderPlanning() {
     wrap.onclick = function(e) {
       if (_drag.moved) { _drag.moved = false; return; }
       var td = e.target.closest('[data-person]');
-      if (td) { toggleAbsence(td.dataset.person, td.dataset.iso); return; }
+      if (td) {
+        var _p = td.dataset.person, _iso = td.dataset.iso;
+        if (planAbsences[_p] && planAbsences[_p].has(_iso)) {
+          var _name = PLAN_PERSONS.find(function(x){return x.key===_p;}).name;
+          var _parts = _iso.split('-');
+          var _label = _parts[2] + '/' + _parts[1] + '/' + _parts[0];
+          if (!confirm('Marquer le ' + _label + ' comme jour travaillé pour ' + _name + ' ?')) return;
+        }
+        toggleAbsence(_p, _iso);
+        return;
+      }
       var cc = e.target.closest('[data-charge-task]');
       if (cc) { showChargePicker(parseInt(cc.dataset.chargeTask), cc.dataset.chargeIso, e); return; }
       var tl = e.target.closest('[data-task-idx]');
@@ -1166,6 +1409,7 @@ function renderPlanning() {
       _drag.moved = false;
     });
   }
+  updateJoursDispos();
 }
 
 
